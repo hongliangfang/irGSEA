@@ -70,7 +70,7 @@ irGSEA.density.scatterplot <- function(object = NULL, method = NULL,
   SeuratObject::DefaultAssay(object) <- method
   scores.scatterplot  <- Nebulosa::plot_density(object,
                                                 features = custom.geneset,
-                                                slot = "scale.data",
+                                                "scale.data",
                                                 reduction = reduction,
                                                 method = "wkde",
                                                 joint = T,

@@ -81,14 +81,14 @@ irGSEA.merge <- function(object.x = NULL, object.y = NULL,
 
       # acts.x
       acts.x <- tryCatch({
-        acts.x <- SeuratObject::GetAssayData(object.x, assay = k, slot = "scale.data")
+        acts.x <- SeuratObject::GetAssayData(object.x, assay = k, "scale.data")
       }, error = function(e) {
         acts.x <- NULL
       })
 
       # acts.y
       acts.y <- tryCatch({
-        acts.y <- SeuratObject::GetAssayData(object.y[[i]], assay = k, slot = "scale.data")
+        acts.y <- SeuratObject::GetAssayData(object.y[[i]], assay = k, "scale.data")
       }, error = function(e) {
         acts.y <- NULL
       })
@@ -250,7 +250,7 @@ irGSEA.merge <- function(object.x = NULL, object.y = NULL,
       # add matrix meta.features
 
       object.x[[k]] <- SeuratObject::CreateAssayObject(counts = acts)
-      object.x <- SeuratObject::SetAssayData(object.x, slot = "scale.data",
+      object.x <- SeuratObject::SetAssayData(object.x, "scale.data",
                                              new.data = acts,
                                              assay = k)
       if (utils::packageVersion("Seurat") >= "5.0.0") {

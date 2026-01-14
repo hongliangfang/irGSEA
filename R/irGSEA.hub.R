@@ -81,7 +81,7 @@ irGSEA.hub <- function(object = NULL, assay = "RNA", slot = "data",
       }
 
       # geneset matrix
-      geneset.data <- SeuratObject::GetAssayData(object[[i]], slot = "scale.data")[show.geneset.new, , drop=F]
+      geneset.data <- SeuratObject::GetAssayData(object[[i]], "scale.data")[show.geneset.new, , drop=F]
 
       cor.geneset <- lapply(show.geneset.new, function(x){
         message(x)
@@ -107,12 +107,12 @@ irGSEA.hub <- function(object = NULL, assay = "RNA", slot = "data",
 
         # gene expression matrix or gene rank matrix
         if (type == "rank") {
-          expression.data <- UCell::StoreRankings_UCell(matrix = SeuratObject::GetAssayData(object[[assay]], slot = slot),
+          expression.data <- UCell::StoreRankings_UCell(matrix = SeuratObject::GetAssayData(object[[assay]], slot),
                                                         maxRank = maxRank,
                                                         ncores = ncores)
           expression.data <- as.matrix(expression.data)[gene, , drop=F]
         }else{
-          expression.data <- SeuratObject::GetAssayData(object[[assay]], slot = slot)[gene, , drop=F]
+          expression.data <- SeuratObject::GetAssayData(object[[assay]], slot)[gene, , drop=F]
         }
 
         # calcute correlation

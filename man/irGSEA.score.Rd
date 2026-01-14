@@ -307,7 +307,7 @@ method = c("AUCell", "UCell", "singscore", "ssgsea"), kcdf = 'Gaussian')
 data("pbmc3k.final")
 pbmc3k.final <- SeuratObject::UpdateSeuratObject(pbmc3k.final)
 pbmc3k.final2 <- CreateSeuratObject(counts = CreateAssay5Object(
-GetAssayData(pbmc3k.final, assay = "RNA", slot = "counts")),
+GetAssayData(pbmc3k.final, assay = "RNA", "counts")),
 meta.data = pbmc3k.final[[]])
 pbmc3k.final2 <- NormalizeData(pbmc3k.final2)
 pbmc3k.final2 <- irGSEA.score(object = pbmc3k.final2, assay = "RNA", slot = "data",
@@ -318,7 +318,7 @@ method = c("AUCell", "UCell", "singscore", "ssgsea"), kcdf = 'Gaussian')
 data("pbmc3k.final")
 pbmc3k.final <- SeuratObject::UpdateSeuratObject(pbmc3k.final)
 pbmc3k.final3 <- CreateAssay5Object(counts = GetAssayData(pbmc3k.final,
-assay = "RNA", slot = "counts"))
+assay = "RNA", "counts"))
 pbmc3k.final3 <- NormalizeData(pbmc3k.final3)
 pbmc3k.final3 <- irGSEA.score(object = pbmc3k.final3, assay = "RNA", slot = "data",
 msigdb = T, species = "Homo sapiens", category = "H", geneid = "symbol",
@@ -326,7 +326,7 @@ method = c("AUCell", "UCell", "singscore", "ssgsea"), kcdf = 'Gaussian')
 
 # Data.fram, Matrix, or dgmatrix
 pbmc3k.final2 <- irGSEA.score(object = GetAssayData(pbmc3k.final,
-assay = "RNA", slot = "counts"),
+assay = "RNA", "counts"),
 assay = "RNA", slot = "data", min.cells = 3, min.feature = 0,
 method = c("AUCell", "UCell", "singscore", "ssgsea"), kcdf = 'Poisson')
 

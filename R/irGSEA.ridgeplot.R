@@ -86,7 +86,7 @@ irGSEA.ridgeplot <- function(object = NULL, method = NULL,
   # plot
   scores.ridgeplot <- Seurat::RidgePlot(object = object,
                                         assay = method,
-                                        slot = "scale.data",
+                                        "scale.data",
                                         group.by = group.by,
                                         cols = color.cluster,
                                         features = custom.geneset,
