@@ -1,3 +1,20 @@
+## SeuratObject 5 compatibility fork
+
+Install this fork from R:
+
+```r
+remotes::install_github("hongliangfang/irGSEA", ref = "master", upgrade = "never")
+```
+
+Restart R before installing if irGSEA is already loaded, and restart R after installation.
+Then use the normal `irGSEA::irGSEA.score(object = srt, assay = "RNA", slot = "data", ...)` interface.
+
+This fork explicitly names `layer` in 37 `GetAssayData`/`SetAssayData` calls in the score, hub, merge and vlnplot functions. The public `slot` argument and scoring algorithms are unchanged. Local version: 3.3.4.9001. Based on upstream commit `f83affd9ca1556328e5158a2cb740167527793c1`.
+
+Validation: source differences and whitespace checked. R installation and scoring tests have not been run. This patch addresses the slot/layer interface; other dependency compatibility issues may still require separate fixes.
+
+---
+
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
