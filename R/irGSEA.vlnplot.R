@@ -81,7 +81,7 @@ irGSEA.vlnplot <- function(object = NULL, method = NULL,
   # plot
   for (i in method) {
     object@meta.data <- object@meta.data %>%
-      dplyr::mutate(!!rlang::sym(i):= as.numeric(SeuratObject::GetAssayData(object, assay = i, "scale.data")[show.geneset,]))
+      dplyr::mutate(!!rlang::sym(i):= as.numeric(SeuratObject::GetAssayData(object, assay = i, layer = "scale.data")[show.geneset,]))
   }
   scores.vlnplot <- Seurat::VlnPlot(object = object,
                                     assay = "RNA",
